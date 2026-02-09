@@ -1,0 +1,45 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+
+
+<h4>Shop Here</h4>
+
+<div class="container">
+    <h3 class="mb-3">Shop Products</h3>
+
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Product</th>
+                <th>Description</th>
+                <th class="text-end">Price</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td class="text-end">
+                    ${{ "%.2f"|format(product.price) }}
+                </td>
+                <td class="text-center">
+                    <form method="POST">
+                        <input type="hidden" name="product_id" value="{{ product.id }}">
+                        <button type="submit" class="btn btn-sm btn-primary">
+                            Add
+                        </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+
+
+    {% endblock %}

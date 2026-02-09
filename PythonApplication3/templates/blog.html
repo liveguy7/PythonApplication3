@@ -1,0 +1,22 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+
+<h1>Blog</h1>
+
+<form method="POST">
+    <input type="text" name="title" placeholder="Title" required><br><br>
+    <textarea name="content" placeholder="Write your post..." required></textarea><br><br>
+    <button type="submit">Post</button>
+</form>
+
+<hr>
+
+{% for post in posts %}
+<h2>{{ post.title }}</h2>
+<small>{{ post.created_at }}</small>
+<p>{{ post.content }}</p>
+<hr>
+{% endfor %}
+
+{% endblock %}

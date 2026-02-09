@@ -1,0 +1,25 @@
+{% extends "_layout.html" %}
+
+{% block content %}
+
+
+<div class="container">
+    <h1 class="mb-4">{{ title }}</h1>
+
+    {% if posts %}
+    {% for post in posts %}
+    <div class="card mb-3 shadow-sm">
+        <div class="card-body">
+            <h4 class="card-title">{{ post.title }}</h4>
+            <small class="text-muted">{{ post.created_at }}</small>
+            <p class="card-text mt-2">{{ post.content }}</p>
+        </div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p class="text-muted">No posts yet.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
+
